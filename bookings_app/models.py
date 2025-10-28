@@ -8,6 +8,8 @@ class Participant(models.Model):
     last_name = models.CharField(max_length=100)
     email = models.EmailField(unique=True)
 
+    full_name = models.CharField(max_length=200, blank=True) # <-- blank=True ist wichtig
+
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
 
