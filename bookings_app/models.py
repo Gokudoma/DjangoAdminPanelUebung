@@ -4,7 +4,6 @@ from django.db import models
 from events_app.models import Event
 
 class Participant(models.Model):
-    # Füge help_text zu den Feldern hinzu
     first_name = models.CharField(
         max_length=100,
         help_text="Geben Sie den Vornamen des Teilnehmers ein."
