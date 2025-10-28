@@ -1,6 +1,5 @@
 from django.db import models
 
-# Create your models here.
 class EventCategory(models.Model):
     name = models.CharField(max_length=100)
 
@@ -21,5 +20,16 @@ class Event(models.Model):
     date = models.DateTimeField()
     capacity = models.PositiveIntegerField()
 
+    title = models.CharField(max_length=200)
+    category = models.ForeignKey(EventCategory, on_delete=models.CASCADE)
+    location = models.ForeignKey(Location, on_delete=models.CASCADE)
+    date = models.DateTimeField()
+    capacity = models.IntegerField()
+
+
+    class Meta:
+        verbose_name = 'Liveact'
+        ordering = ['date']
+        
     def __str__(self):
-        return f"{self.title} ({self.date.date()})"
+        return self.title
